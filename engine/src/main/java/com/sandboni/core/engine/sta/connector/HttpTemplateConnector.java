@@ -69,6 +69,9 @@ public class HttpTemplateConnector implements Connector {
     // in our scenario standard logic can't apply - tests are not guaranteed to use the same full template
     // so we use some heuristics here
     public boolean isMatch(String callerTemplate, String calleeTemplate) {
+        if (callerTemplate == null || calleeTemplate == null) {
+            return false;
+        }
 
         // this trivial case which doesn't need any extra dependency created
         if (callerTemplate.endsWith(calleeTemplate)) {

@@ -31,7 +31,7 @@ public class CucumberJavaConnector implements Connector {
     }
 
     public boolean isMatch(String callerTemplate, String calleeTemplate) {
-        Pattern pattern = Pattern.compile(callerTemplate);
+        Pattern pattern = Pattern.compile(Pattern.quote(callerTemplate));
         Matcher matcher = pattern.matcher(calleeTemplate);
         return matcher.find();
     }
